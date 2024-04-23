@@ -34,5 +34,21 @@
       <p>In all seriousness, this is kinda bad, but after all this is just the start of this project, this is gonna be something decent in the end, maybe once google finally adds a stupid navigation bar to their material design library for web... but they're google, so they'll take ages to do that.
       <p>the current one is completely <h3>JERRY-RIGGED</h3> into looking material like, worth the effort, btw this app doesn't currently have any function.</p>
     </div>
+    <div class="main">
+    <h1 id="header">Welcome from Tauri!</h1>
+    <script>
+      // access the pre-bundled global API functions
+      const { invoke } = window.__TAURI__.tauri
+
+      // now we can call our Command!
+      // You will see "Welcome from Tauri" replaced
+      // by "Hello, World!"!
+      invoke('greet', { name: 'Worm' })
+        // `invoke` returns a Promise
+        .then((response) => {
+          window.header.innerHTML = response
+        })
+    </script>
+    </div>
   </body>
 </html>
