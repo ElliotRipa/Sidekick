@@ -4,6 +4,7 @@
     <script type="module" src="./js/material.js"></script>
     <script src="./js/bundle.js"></script>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
       :root {
         font-family: 'Roboto', system-ui, sans-serif;
@@ -16,15 +17,29 @@
   <body class="md-body">
     <div id="include-nav"></div>
     <script>
-      const contentContainer = document.getElementById('include-nav');
-      fetch('nav.html')
+document.addEventListener('DOMContentLoaded', function() {
+    const contentContainer = document.getElementById('include-nav');
+
+    fetch('nav.html')
         .then(response => response.text())
         .then(data => {
-          contentContainer.innerHTML = data;
+            contentContainer.innerHTML = data;
+            executeScripts(contentContainer); // Execute scripts
         })
         .catch(error => {
-          console.error(error); // Handle any errors during fetching
+            console.error('Error fetching nav.html:', error);
         });
+});
+
+// Function to execute scripts within an element
+function executeScripts(container) {
+    const scriptElements = container.querySelectorAll('script');
+    scriptElements.forEach(script => {
+        const newScript = document.createElement('script');
+        newScript.textContent = script.textContent;
+        container.appendChild(newScript);
+    });
+}
     </script>
     <div class="main">
       <h1>Hi there!</h1>
@@ -32,7 +47,7 @@
       <md-checkbox></md-checkbox>
       <md-filled-button>Great</md-filled-button>
       <p>In all seriousness, this is kinda bad, but after all this is just the start of this project, this is gonna be something decent in the end, maybe once google finally adds a stupid navigation bar to their material design library for web... but they're google, so they'll take ages to do that.
-      <p>the current one is completely <h3>JERRY-RIGGED</h3> into looking material like, worth the effort, btw this app doesn't currently have any function.</p>
+      </p>the current one is completely <h3>JERRY-RIGGED</h3> into looking material like, worth the effort, btw this app doesn't currently have any function.</p>
     </div>
     <div class="main">
     <h1 id="header">Welcome from Tauri!</h1>

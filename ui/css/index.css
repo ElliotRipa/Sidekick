@@ -1,3 +1,4 @@
+
 /* The jerry-rigged material-design like sidebar menu */
 .sidenav {
   height: 100%;
@@ -12,7 +13,7 @@
 }
 
 /* Material button paddings */
-.sidenav md-filled-tonal-icon-button {
+.sidenav-button {
   padding: 0px 10px 10px 10px;
 }
 
